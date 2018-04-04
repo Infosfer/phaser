@@ -226,7 +226,7 @@ module.exports = function (grunt) {
                 //  3) PIXI
 
                 grunt.log.writeln("-> PIXI");
-                
+
                 if (!excludedKeys['intro'])
                 {
                     tasks.push('concat:pixiIntro');
@@ -235,7 +235,7 @@ module.exports = function (grunt) {
 
                 tasks.push('concat:pixiMain');
                 pixiFilelist.push('<%= modules_dir %>/pixi-main.js');
-                
+
                 //  Optional Rope
                 if (!excludedKeys['rope'])
                 {
@@ -299,7 +299,7 @@ module.exports = function (grunt) {
                 //  3) PIXI
 
                 grunt.log.writeln("-> PIXI");
-                
+
                 if (!excludedKeys['intro'])
                 {
                     tasks.push('concat:pixiIntro');
@@ -308,7 +308,7 @@ module.exports = function (grunt) {
 
                 tasks.push('concat:pixiMain');
                 filelist.push('<%= modules_dir %>/pixi-main.js');
-                
+
                 //  Optional Rope
                 if (!excludedKeys['rope'])
                 {
@@ -565,4 +565,16 @@ module.exports = function (grunt) {
 
     });
 
+    grunt.registerTask('ck-html5', 'Phaser tailored for ck-html5', function() {
+
+        grunt.option('exclude', 'gamepad,keyboard,rendertexture,text,retrofont,rope,tilesprite,net,debug,flexgrid,arcade,ninja,p2,tilemaps,particles,weapon,creature,video');
+        grunt.option('filename', 'phaser-charmking');
+        grunt.option('sourcemap', true);
+        grunt.option('copy', false);
+        grunt.option('copycustom', false);
+        grunt.option('uglify', true);
+
+        grunt.task.run('custom');
+
+    });
 };
